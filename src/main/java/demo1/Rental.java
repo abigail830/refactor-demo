@@ -27,11 +27,11 @@ public class Rental {
     }
 
     public int calculateFrequentRenterPoints() {
-        return getMovie().calFrequentRenterPoints(getDaysRented());
+        return movie.calFrequentRenterPoints(daysRented);
     }
 
     public double calculateAmount() {
-        return getMovie().calAmount(getDaysRented());
+        return movie.calAmount(daysRented);
     }
 
 }

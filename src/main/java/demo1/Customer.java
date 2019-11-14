@@ -33,7 +33,7 @@ public class Customer {
                 '}';
     }
 
-    public String printStatement() {
+    public String getStatement() {
 
         double totalAmount = 0; // 总消费金。
         int frequentRenterPoints = 0; // 常客积点

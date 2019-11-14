@@ -41,7 +41,7 @@ public class Movie {
     public double calAmount(int daysRented) {
         double result = 0;
 
-        switch (getPriceCode()) {
+        switch (priceCode) {
             // 普通片
             case REGULAR:
                 result += 2;
@@ -64,7 +64,7 @@ public class Movie {
     }
 
     public int calFrequentRenterPoints(int daysRented) {
-        if ((getPriceCode() == NEW_RELEASE) && daysRented > 1)
+        if ((priceCode == NEW_RELEASE) && daysRented > 1)
             return 2;
         else {
             return 1;
