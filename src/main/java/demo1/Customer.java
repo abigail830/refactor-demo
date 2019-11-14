@@ -44,7 +44,7 @@ public class Customer {
 
             frequentRenterPoints += rental.calculateFrequentRenterPoints();
 
-            double thisAmount = rental.calculateAmount();
+            double thisAmount = rental.getMovie().calculateAmount(rental.getDaysRented());
             result += "\t" + rental.getMovie().getTitle() + "\t"
                     + String.valueOf(thisAmount) + "\n";
             totalAmount += thisAmount;
