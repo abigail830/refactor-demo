@@ -28,7 +28,7 @@ public class StatementService {
             double thisAmount = 0;
 
             // 取得影片出租价格
-            thisAmount = getRentalAmount(rental);
+            thisAmount = rental.calculateAmount();
 
             // add frequent renter points （累计常客积点。
             frequentRenterPoints++;
@@ -52,26 +52,4 @@ public class StatementService {
         return result;
     }
 
-    private double getRentalAmount(Rental rental) {
-        double result = 0;
-        switch (rental.getMovie().getPriceCode()) {
-            // 普通片
-            case Movie.REGULAR:
-                result += 2;
-                if (rental.getDaysRented() > 2)
-                    result += (rental.getDaysRented() - 2) * 1.5;
-                break;
-            // 新片
-            case Movie.NEW_RELEASE:
-                result += rental.getDaysRented() * 3;
-                break;
-            // 儿童
-            case Movie.CHILDRENS:
-                result += 1.5;
-                if (rental.getDaysRented() > 3)
-                    result += (rental.getDaysRented() - 3) * 1.5;
-                break;
-        }
-        return result;
-    }
 }

@@ -25,4 +25,29 @@ public class Rental {
                 ", daysRented=" + daysRented +
                 '}';
     }
+
+    public double calculateAmount() {
+        double result = 0;
+
+        switch (getMovie().getPriceCode()) {
+            // 普通片
+            case Movie.REGULAR:
+                result += 2;
+                if (getDaysRented() > 2)
+                    result += (getDaysRented() - 2) * 1.5;
+                break;
+            // 新片
+            case Movie.NEW_RELEASE:
+                result += getDaysRented() * 3;
+                break;
+            // 儿童
+            case Movie.CHILDRENS:
+                result += 1.5;
+                if (getDaysRented() > 3)
+                    result += (getDaysRented() - 3) * 1.5;
+                break;
+        }
+
+        return result;
+    }
 }
