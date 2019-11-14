@@ -53,25 +53,25 @@ public class StatementService {
     }
 
     private double getRentalAmount(Rental rental) {
-        double thisAmount = 0;
+        double result = 0;
         switch (rental.getMovie().getPriceCode()) {
             // 普通片
             case Movie.REGULAR:
-                thisAmount += 2;
+                result += 2;
                 if (rental.getDaysRented() > 2)
-                    thisAmount += (rental.getDaysRented() - 2) * 1.5;
+                    result += (rental.getDaysRented() - 2) * 1.5;
                 break;
             // 新片
             case Movie.NEW_RELEASE:
-                thisAmount += rental.getDaysRented() * 3;
+                result += rental.getDaysRented() * 3;
                 break;
             // 儿童
             case Movie.CHILDRENS:
-                thisAmount += 1.5;
+                result += 1.5;
                 if (rental.getDaysRented() > 3)
-                    thisAmount += (rental.getDaysRented() - 3) * 1.5;
+                    result += (rental.getDaysRented() - 3) * 1.5;
                 break;
         }
-        return thisAmount;
+        return result;
     }
 }
