@@ -17,7 +17,7 @@ package demo1;
 public class StatementService {
 
     public String printStatement(Customer customer) {
-        return customer.printStatement();
+        return customer.getStatement();
     }
 
 }
