@@ -44,19 +44,15 @@ public class Movie {
         switch (priceCode) {
             // 普通片
             case REGULAR:
-                result += 2;
-                if (daysRented > 2)
-                    result += (daysRented - 2) * 1.5;
+                result = new RegularPrice().getPrice(daysRented);
                 break;
             // 新片
             case NEW_RELEASE:
-                result += daysRented * 3;
+                result = new NewReleasePrice().getPrice(daysRented);
                 break;
             // 儿童
             case CHILDRENS:
-                result += 1.5;
-                if (daysRented > 3)
-                    result += (daysRented - 3) * 1.5;
+                result = new ChildrenPrice().getPrice(daysRented);
                 break;
         }
 
@@ -70,4 +66,5 @@ public class Movie {
             return 1;
         }
     }
+
 }
