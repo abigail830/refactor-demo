@@ -38,7 +38,7 @@ public class Movie {
                 '}';
     }
 
-    public double calculateAmount(int daysRented) {
+    public double calAmount(int daysRented) {
         double result = 0;
 
         switch (getPriceCode()) {
@@ -61,5 +61,13 @@ public class Movie {
         }
 
         return result;
+    }
+
+    public int calFrequentRenterPoints(int daysRented) {
+        if ((getPriceCode() == NEW_RELEASE) && daysRented > 1)
+            return 2;
+        else {
+            return 1;
+        }
     }
 }
