@@ -28,7 +28,7 @@ public class StatementService {
             // 取得影片出租价格
             double thisAmount = rental.calculateAmount();
 
-            frequentRenterPoints = calculateFrequentRenterPoints(rental);
+            frequentRenterPoints = rental.calculateFrequentRenterPoints();
 
             // show figures for this rental（显示此笔租借记录）
             result += "\t" + rental.getMovie().getTitle() + "\t"
@@ -43,17 +43,6 @@ public class StatementService {
                 + " frequent renter points";
 
         return result;
-    }
-
-    private int calculateFrequentRenterPoints(Rental rental) {
-        // add frequent renter points （累计常客积点。
-        int frequentRenterPoints = 1;
-
-        // add bonus for a two day new release rental
-        if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
-            frequentRenterPoints++;
-
-        return frequentRenterPoints;
     }
 
 }
