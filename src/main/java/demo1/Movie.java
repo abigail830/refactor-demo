@@ -8,10 +8,24 @@ public class Movie {
 
     private String title;
     private int priceCode;
+    private Price price;
 
     public Movie(String title, int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
+        setPrice(priceCode);
+    }
+
+    public Price getPrice() {
+        return price;
+    }
+
+    public void setPrice(int priceCode) {
+        if (priceCode == REGULAR) price = new RegularPrice();
+
+        if (priceCode == NEW_RELEASE) price = new NewReleasePrice();
+
+        if (priceCode == CHILDRENS) price = new ChildrenPrice();
     }
 
     public String getTitle() {
@@ -39,24 +53,8 @@ public class Movie {
     }
 
     public double calAmount(int daysRented) {
-        double result = 0;
+        return price.getPrice(daysRented);
 
-        switch (priceCode) {
-            // 普通片
-            case REGULAR:
-                result = new RegularPrice().getPrice(daysRented);
-                break;
-            // 新片
-            case NEW_RELEASE:
-                result = new NewReleasePrice().getPrice(daysRented);
-                break;
-            // 儿童
-            case CHILDRENS:
-                result = new ChildrenPrice().getPrice(daysRented);
-                break;
-        }
-
-        return result;
     }
 
     public int calFrequentRenterPoints(int daysRented) {

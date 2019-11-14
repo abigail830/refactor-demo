@@ -8,4 +8,8 @@ public class RegularPrice implements Price {
             result += (daysRented - 2) * 1.5;
         return result;
     }
+
+    public int getPriceCode() {
+        return Movie.REGULAR;
+    }
 }

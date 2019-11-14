@@ -9,4 +9,8 @@ public class ChildrenPrice implements Price {
 
         return result;
     }
+
+    public int getPriceCode() {
+        return Movie.CHILDRENS;
+    }
 }
