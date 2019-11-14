@@ -25,10 +25,8 @@ public class StatementService {
 
         for (Rental rental : customer.getRentalList()) {
 
-            double thisAmount = 0;
-
             // 取得影片出租价格
-            thisAmount = rental.calculateAmount();
+            double thisAmount = rental.calculateAmount();
 
             // add frequent renter points （累计常客积点。
             frequentRenterPoints++;
