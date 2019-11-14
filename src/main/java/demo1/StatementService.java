@@ -25,15 +25,11 @@ public class StatementService {
 
         for (Rental rental : customer.getRentalList()) {
 
-            // 取得影片出租价格
-            double thisAmount = rental.calculateAmount();
-
             frequentRenterPoints = rental.calculateFrequentRenterPoints();
 
-            // show figures for this rental（显示此笔租借记录）
+            double thisAmount = rental.calculateAmount();
             result += "\t" + rental.getMovie().getTitle() + "\t"
                     + String.valueOf(thisAmount) + "\n";
-
             totalAmount += thisAmount;
         }
 
