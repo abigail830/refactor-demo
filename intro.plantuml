@@ -1,0 +1,32 @@
+@startuml
+
+title 重构 Refactor
+
++Class Customer {
+ -String name
+ -List<Rental> rentalList
+}
+
++Class Movie{
+    +static final int REGULAR = 0;
+    +static final int NEW_RELEASE = 1;
+    +static final int CHILDRENS = 2;
+
+    -String title;
+    -int priceCode;
+}
+
++Class Rental{
+    -Movie movie;
+    -int daysRented;
+}
+
+Customer "1" *-- "many" Rental : contains
+Rental "1" *-- "1" Movie : contains
+
++Class StatementService{
+ +String printStatement(Customer customer)
+}
+
+
+@enduml

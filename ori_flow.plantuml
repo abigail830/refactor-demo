@@ -1,0 +1,25 @@
+@startuml
+
+title 重构 Refactor
+
+
+activate StatementService
+
+[-> StatementService : printStatement(customer)
+
+
+StatementService -> StatementService: for all rentals
+activate StatementService
+
+StatementService -> Rental: getMovie
+Rental -> Movie: getPriceCode
+StatementService -> Rental: getDaysRented
+
+StatementService -> StatementService: calculate amount
+StatementService -> StatementService: calculate frequentRenterPoint
+StatementService -> StatementService: get result in string
+deactivate StatementService
+
+deactivate StatementService
+
+@enduml
