@@ -1,14 +1,12 @@
-# refactor-demo
+# 关于重构 [refactor-demo]
 [![Build Status](https://travis-ci.org/abigail830/refactor-demo.svg?branch=master)](https://travis-ci.org/abigail830/refactor-demo)
 
-## 关于重构的那些事。。。
-
-### 要点
+## 要点
 * 发现坏味道
 * 测试保护
 * 小步提交
 
-### 代码介绍
+## 代码介绍
 有一个能获取客户账单的功能，账单里面会统计客户租电影名称、价格、积分
 
 * intro.plantuml
@@ -24,8 +22,8 @@
 * 每租1张影碟得1积分
 * 如果是新片而且租超过1天的话，再加1积分
 
-##步骤
-###Part 1 （过长函数、测试保护、抽取方法、变量命名、减少临时变量）
+## 步骤
+### Part 1 （过长函数、测试保护、抽取方法、变量命名、减少临时变量）
 
 * 发倔坏味道 -> StatementService.printStatement 过长函数
 * 找边界 -> 理解代码 + 留意有注释的地方
