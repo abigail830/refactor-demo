@@ -1,5 +1,6 @@
 package demo1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
@@ -9,6 +10,7 @@ public class Customer {
 
     public Customer(String name) {
         this.name = name;
+        rentalList = new ArrayList<>();
     }
 
     public void addRental(Rental rental){
