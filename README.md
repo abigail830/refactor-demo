@@ -1,11 +1,6 @@
 # 关于重构 [refactor-demo]
 [![Build Status](https://travis-ci.org/abigail830/refactor-demo.svg?branch=master)](https://travis-ci.org/abigail830/refactor-demo)
 
-## 要点
-* 发现坏味道
-* 测试保护
-* 小步提交
-
 ## 代码介绍
 有一个能获取客户账单的功能，账单里面会统计客户租电影名称、价格、积分
 
@@ -16,6 +11,12 @@
 * ori_flow.plantuml
 
 ![alt text](http://www.plantuml.com/plantuml/png/bLFFQnD15BxFN_6EAbH8YvSSfALTL8YbR10F7cJPl8I1oOxElWru4sqR5MCzI2j5srZKui543zgeQ_rdEhFhgV-2Bpy8QaEibzsPxttlUz_xs9sFAJ2Kr9KG94aX_6ostCug-5WDGj962C5lsGW8eKpyh6D4PJGD6Q8GDsOkda2X2BUCZ6YCdmcJc7GTpLaMEy6Ue524gZOGA0M6mK35KonC5FG7RKMe8LtL3ObY2FHBW_kWicAOlQWh-2-9fU1EtBzYvRJsmq25YM8KWhfE8XAHvhF2AWdx_MFsi6cRNxFztQDl1wwTvfrNMMVBRNwnwSPnkYtW7C0C-DwbQwK5du7yqu5x_uQvitRj_d7wc1lppslvZ-QiVVtEFdt2aEjkyBbm_W8pHltBtlMRlbVo5ieUQmm9SqE1eruhxnoEPKSDYvUlb9PyRxdy-qYM_6letEIX65MWlwJu_uYg1cydN1f4R5Qq_3ElNizszhBzhdsmFZafzi7k2ZPjzxFTsxM7MuKXdqsEEFRjFRVpmZtlkiqF77z-bqDuDjwfm7jaswjvzoLtsFMMVTGUAOptEkrQDIGm62UAG4OGav5HJOWAJlc0fnRdsG3_dBy0)
+
+## 要点
+* 发现坏味道
+* 安全地重构
+  * 测试保护
+  * 小步提交
 
 
 ## 步骤
