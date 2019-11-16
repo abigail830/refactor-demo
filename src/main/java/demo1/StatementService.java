@@ -25,34 +25,11 @@ public class StatementService {
 
         for (Rental rental : customer.getRentalList()) {
 
-            double thisAmount = 0;
+            // add frequent renter points （累计常客积点。
+            frequentRenterPoints += calculateFrequentRenterPoints(rental);
 
             // 取得影片出租价格
-            switch (rental.getMovie().getPriceCode()) {
-                // 普通片
-                case Movie.REGULAR:
-                    thisAmount += 2;
-                    if (rental.getDaysRented() > 2)
-                        thisAmount += (rental.getDaysRented() - 2) * 1.5;
-                    break;
-                // 新片
-                case Movie.NEW_RELEASE:
-                    thisAmount += rental.getDaysRented() * 3;
-                    break;
-                // 儿童
-                case Movie.CHILDRENS:
-                    thisAmount += 1.5;
-                    if (rental.getDaysRented() > 3)
-                        thisAmount += (rental.getDaysRented() - 3) * 1.5;
-                    break;
-            }
-
-            // add frequent renter points （累计常客积点。
-            frequentRenterPoints++;
-
-            // add bonus for a two day new release rental
-            if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
-                frequentRenterPoints++;
+            double thisAmount = calculateAmount(rental);
 
             // show figures for this rental（显示此笔租借记录）
             result += "\t" + rental.getMovie().getTitle() + "\t"
@@ -66,6 +43,37 @@ public class StatementService {
         result += "You earned " + String.valueOf(frequentRenterPoints)
                 + " frequent renter points";
 
+        return result;
+    }
+
+    private int calculateFrequentRenterPoints(Rental rental) {
+        if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1) {
+            return 2;
+        } else {
+            return 1;
+        }
+    }
+
+    private double calculateAmount(Rental rental) {
+        double result = 0;
+        switch (rental.getMovie().getPriceCode()) {
+            // 普通片
+            case Movie.REGULAR:
+                result += 2;
+                if (rental.getDaysRented() > 2)
+                    result += (rental.getDaysRented() - 2) * 1.5;
+                break;
+            // 新片
+            case Movie.NEW_RELEASE:
+                result += rental.getDaysRented() * 3;
+                break;
+            // 儿童
+            case Movie.CHILDRENS:
+                result += 1.5;
+                if (rental.getDaysRented() > 3)
+                    result += (rental.getDaysRented() - 3) * 1.5;
+                break;
+        }
         return result;
     }
 }
