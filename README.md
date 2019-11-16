@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/abigail830/refactor-demo.svg?branch=master)](https://travis-ci.org/abigail830/refactor-demo)
 
 ## 代码介绍
-有一个能获取客户账单的功能，账单里面会统计客户租电影名称、价格、积分
+代码中，提供了一个能获取客户账单的功能，账单里面会列出客户租电影名称和价格的明细列表，以及所有租售的总价格和总积分
 
 * intro.plantuml
 
