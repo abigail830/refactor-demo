@@ -7,6 +7,12 @@
 * 冗余的临时变量(灰色的波浪线) -> 移除 -> Alt+Enter, 手工
 * 变量名、方法名不够表意 -> 改名 -> Refactor/Rename
 
+## Part 2
+* 特性依恋 -> 移动方法
+	* 完全依恋 -> Refactor/Move
+	* 一半/一半依恋 -> Refactor/Extract/Method+Parameter + Refactor/Move
+* 充血模型
+
 ## 安全重构
 * 添加自动化测试案例
 * 每次重构之后，重复多次运行测试案例
