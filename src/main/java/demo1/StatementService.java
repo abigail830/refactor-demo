@@ -17,8 +17,8 @@ package demo1;
 public class StatementService {
 
     @Deprecated
-    public String printStatement(Customer costomer) {
-        return costomer.printStatement();
+    public String printStatement(Customer customer) {
+        return customer.printStatement();
     }
 
 }

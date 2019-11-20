@@ -27,33 +27,11 @@ public class Rental {
     }
 
     public int calculateFrequentRenterPoints() {
-        if ((movie.getPriceCode() == Movie.NEW_RELEASE) && daysRented > 1) {
-            return 2;
-        } else {
-            return 1;
-        }
+        return movie.getRentalPoints(daysRented);
     }
 
     public double calculateAmount() {
-        double result = 0;
-        switch (movie.getPriceCode()) {
-            // 普通片
-            case Movie.REGULAR:
-                result += 2;
-                if (daysRented > 2)
-                    result += (daysRented - 2) * 1.5;
-                break;
-            // 新片
-            case Movie.NEW_RELEASE:
-                result += daysRented * 3;
-                break;
-            // 儿童
-            case Movie.CHILDRENS:
-                result += 1.5;
-                if (daysRented > 3)
-                    result += (daysRented - 3) * 1.5;
-                break;
-        }
-        return result;
+        return movie.calAmount(daysRented);
     }
+
 }

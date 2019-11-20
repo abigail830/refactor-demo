@@ -2,6 +2,7 @@ package demo1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Customer {
 
@@ -34,32 +35,37 @@ public class Customer {
     }
 
     public String printStatement() {
-
-        double totalAmount = 0; // 总消费金。
-        int frequentRenterPoints = 0; // 常客积点
-
         String result = "Rental Record for " + name + "\n";
-
-        for (Rental rental : rentalList) {
-
-            // add frequent renter points （累计常客积点。
-            frequentRenterPoints += rental.calculateFrequentRenterPoints();
-
-            // 取得影片出租价格
-            double thisAmount = rental.calculateAmount();
-
-            // show figures for this rental（显示此笔租借记录）
-            result += "\t" + rental.getMovie().getTitle() + "\t"
-                    + String.valueOf(thisAmount) + "\n";
-
-            totalAmount += thisAmount;
-        }
-
-        // add footer lines（结尾打印）
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints)
+        result += getRentailDetailList();
+        result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
+        result += "You earned " + String.valueOf(getTotalFrequentRenterPoints())
                 + " frequent renter points";
 
         return result;
+    }
+
+    private String getRentailDetailList() {
+        return rentalList.stream()
+                .map(this::getDetailStatement)
+                .collect(Collectors.joining());
+
+    }
+
+    private String getDetailStatement(Rental rental) {
+        return "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.calculateAmount()) + "\n";
+
+    }
+
+    private double getTotalAmount() {
+        return rentalList.stream()
+                .map(Rental::calculateAmount)
+                .reduce(0d, Double::sum);
+    }
+
+    private int getTotalFrequentRenterPoints() {
+        return rentalList.stream()
+                .map(Rental::calculateFrequentRenterPoints)
+                .reduce(0, Integer::sum);
+
     }
 }

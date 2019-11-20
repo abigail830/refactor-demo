@@ -1,0 +1,43 @@
+@startuml
+
+title 重构 Refactor
+
++Class Customer {
+ -String name
+ -List<Rental> rentalList;
+ + String printStatement();
+}
+
++Class Movie{
+    +static final int REGULAR = 0;
+    +static final int NEW_RELEASE = 1;
+    +static final int CHILDRENS = 2;
+
+    -String title;
+    -int priceCode;
+
+    + int getRentalPoints(int daysRented) ;
+    + double calAmount(int daysRented);
+}
+
++Class Rental{
+    -Movie movie;
+    -int daysRented;
+    + int calculateFrequentRenterPoints();
+    + double calculateAmount();
+}
+
+Customer "1" *-- "many" Rental : contains
+Rental "1" *-- "1" Movie : contains
+
++Class StatementService{
+ +String printStatement(Customer customer)
+}
+note bottom
+打印客户的账单，内容包括
+- 租售了的Movie的名称和价格列表
+- 所有Movie的总价和总积分统计
+end note
+
+
+@enduml
