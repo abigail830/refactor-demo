@@ -9,7 +9,6 @@
   
 ![alt text](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuR9wkgVXQVz4QovTEuMdwtgUTKnusZN_HVFUfnFwhBdACp9pKXKqWFBF-cOysRtu-OB6ftFxdqxS_B9nigP2PZ5GQksCftDMm0NjDRcu51IidgxhVDgwucLxxxDvBTPWWGtzpzOkVTO_uSck9TPSgNafO9Evk8fByWku781ye5C0)
 
-
 ## 代码背景介绍
 
 这是一个给客户提供电影出租的系统，其中系统需要提供一个功能：为客户输出他已租电影记录的报表。
@@ -56,5 +55,7 @@
 * 移动getFrequentRenterPoints到Movie -> 抽取方法，抽取入参，移动方法
 * 移动getAmount到Movie -> 抽取方法，抽取入参，移动方法
 
+改动后的类图示意：
+![alt text](http://www.plantuml.com/plantuml/png/T99TI_im5CRlyoaElLh_fV2VbrR5KUiBr24jugLaRJOAQQB9wM28Tu9NVWK_ti1luMbJGXbk5tbvyikpvvpqqY8tsBMICMnG2lZv_Df_Vq0Xrhn2RHYBKicjXRIpg5jXu8r1NA9fr0OKRmNjyiRYMI4KSda1PfXxAM4GmKY-q8WbSXGjdS_2XBrxvtkzRGIvqY-oX3GLh1l59T0LABARntnHm3dyJuuWo-pfkSZoR55cXCsFOUdjNNvLPCkIe9E4zPGlP2WzSLBFKjnAfBeUDUSuk6m4kaeVD6tjhDTglhEzAEeGaf6jTRUI0Yek5wtk51w2qmOuGzU1UEW6j3HE0ark9fCmv5vragEuDkAre-C1CMEqy22BfyT4BeD_rs0UmByuXg3bQXUCeU0KAasBHbdc5C_Hx9vkmlYI_5ENmcofbrHSzFUduF-_6XSXfL8Q1Qmqai3sl-kS_BHtmzDrYvvrR7y-g-N5bcLFUwU-tzFpjAtrwRgTJtjQdtMluT9LUBvy_jCfwvxiQWEg0JiBI3-TqFjy-OQdatgUxDx-RC6UfntJNonS0LJxhBFXsPnEcAfd3Rk1ya1LGCRpvUkVThGztpt_nRg5NAbvAGeWbt1nSJa0sQ1C0W00)
 
 
