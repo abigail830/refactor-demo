@@ -26,7 +26,7 @@ public class StatementService {
         for (Rental rental : customer.getRentalList()) {
 
             // add frequent renter points （累计常客积点。
-            frequentRenterPoints += calculateFrequentRenterPoints(rental);
+            frequentRenterPoints += rental.calculateFrequentRenterPoints();
 
             // 取得影片出租价格
             double thisAmount = calculateAmount(rental);
@@ -44,14 +44,6 @@ public class StatementService {
                 + " frequent renter points";
 
         return result;
-    }
-
-    private int calculateFrequentRenterPoints(Rental rental) {
-        if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1) {
-            return 2;
-        } else {
-            return 1;
-        }
     }
 
     private double calculateAmount(Rental rental) {

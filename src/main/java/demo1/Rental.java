@@ -25,4 +25,12 @@ public class Rental {
                 ", daysRented=" + daysRented +
                 '}';
     }
+
+    public int calculateFrequentRenterPoints() {
+        if ((movie.getPriceCode() == Movie.NEW_RELEASE) && daysRented > 1) {
+            return 2;
+        } else {
+            return 1;
+        }
+    }
 }
