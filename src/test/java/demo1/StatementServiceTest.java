@@ -15,7 +15,7 @@ class StatementServiceTest {
         customer1.addRental(new Rental(movie1, 1));
 
         //when
-        final String s = new StatementService().printStatement(customer1);
+        final String s = customer1.printStatement();
 
         //then
         String expect = "Rental Record for customer1\n" +
@@ -33,7 +33,7 @@ class StatementServiceTest {
         customer1.addRental(new Rental(movie1, 3));
 
         //when
-        final String s = new StatementService().printStatement(customer1);
+        final String s = customer1.printStatement();
         //then
         String expect = "Rental Record for customer1\n" +
                 "\tmovie1\t3.5\n" +
@@ -50,7 +50,7 @@ class StatementServiceTest {
         customer1.addRental(new Rental(movie1, 2));
 
         //when
-        final String s = new StatementService().printStatement(customer1);
+        final String s = customer1.printStatement();
         //then
         String expect = "Rental Record for customer1\n" +
                 "\tmovie1\t6.0\n" +
@@ -67,7 +67,7 @@ class StatementServiceTest {
         customer1.addRental(new Rental(movie1, 2));
 
         //when
-        final String s = new StatementService().printStatement(customer1);
+        final String s = customer1.printStatement();
         //then
         String expect = "Rental Record for customer1\n" +
                 "\tmovie1\t1.5\n" +
@@ -84,7 +84,7 @@ class StatementServiceTest {
         customer1.addRental(new Rental(movie1, 4));
 
         //when
-        final String s = new StatementService().printStatement(customer1);
+        final String s = customer1.printStatement();
 
         //then
         String expect = "Rental Record for customer1\n" +
@@ -110,7 +110,7 @@ class StatementServiceTest {
 
 
         //when
-        final String s = new StatementService().printStatement(customer1);
+        final String s = customer1.printStatement();
 
         //then
         String expect = "Rental Record for customer1\n" +

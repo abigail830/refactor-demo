@@ -16,34 +16,9 @@ package demo1;
  */
 public class StatementService {
 
-    public String printStatement(Customer customer) {
-
-        double totalAmount = 0; // 总消费金。
-        int frequentRenterPoints = 0; // 常客积点
-
-        String result = "Rental Record for " + customer.getName() + "\n";
-
-        for (Rental rental : customer.getRentalList()) {
-
-            // add frequent renter points （累计常客积点。
-            frequentRenterPoints += rental.calculateFrequentRenterPoints();
-
-            // 取得影片出租价格
-            double thisAmount = rental.calculateAmount();
-
-            // show figures for this rental（显示此笔租借记录）
-            result += "\t" + rental.getMovie().getTitle() + "\t"
-                    + String.valueOf(thisAmount) + "\n";
-
-            totalAmount += thisAmount;
-        }
-
-        // add footer lines（结尾打印）
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints)
-                + " frequent renter points";
-
-        return result;
+    @Deprecated
+    public String printStatement(Customer costomer) {
+        return costomer.printStatement();
     }
 
 }
