@@ -1,0 +1,11 @@
+@startuml
+:开发;
+-> 完成功能后;
+while (发掘代码坏味道) is (存在坏味道?)
+
+  :安全重构;
+  :小步提交;
+endwhile
+
+stop
+@enduml
