@@ -58,4 +58,16 @@
 改动后的类图示意：
 ![alt text](http://www.plantuml.com/plantuml/png/T99TI_im5CRlyoaElLh_fV2VbrR5KUiBr24jugLaRJOAQQB9wM28Tu9NVWK_ti1luMbJGXbk5tbvyikpvvpqqY8tsBMICMnG2lZv_Df_Vq0Xrhn2RHYBKicjXRIpg5jXu8r1NA9fr0OKRmNjyiRYMI4KSda1PfXxAM4GmKY-q8WbSXGjdS_2XBrxvtkzRGIvqY-oX3GLh1l59T0LABARntnHm3dyJuuWo-pfkSZoR55cXCsFOUdjNNvLPCkIe9E4zPGlP2WzSLBFKjnAfBeUDUSuk6m4kaeVD6tjhDTglhEzAEeGaf6jTRUI0Yek5wtk51w2qmOuGzU1UEW6j3HE0ark9fCmv5vragEuDkAre-C1CMEqy22BfyT4BeD_rs0UmByuXg3bQXUCeU0KAasBHbdc5C_Hx9vkmlYI_5ENmcofbrHSzFUduF-_6XSXfL8Q1Qmqai3sl-kS_BHtmzDrYvvrR7y-g-N5bcLFUwU-tzFpjAtrwRgTJtjQdtMluT9LUBvy_jCfwvxiQWEg0JiBI3-TqFjy-OQdatgUxDx-RC6UfntJNonS0LJxhBFXsPnEcAfd3Rk1ya1LGCRpvUkVThGztpt_nRg5NAbvAGeWbt1nSJa0sQ1C0W00)
 
+### Part 3 (去除临时变量、步骤拆分）
+
+* 发掘坏味道 -> 临时变量多，步骤不明显
+* 把Customer.printStatement 拆分成明确的三部
+* 发掘坏味道 -> 特性依恋
+* 把相关方法移动到所属类里面
+* 体验lambda8的威力
+
+思考： 重构与性能优化的关系？
+
+### Part 4 （Switch/Case， 多态）
+
 
