@@ -25,6 +25,10 @@
 	* 有没有外部依赖？
 	* 需要做具体的性能测试
 
+## Part4
+* 业务意图和计算细节混合 -> 把细节抽取（Refactor/Extract/Method Object + Move)
+* 重复代码 -> 抽取父类 Refactor/Extract/Super Class
+* 重复代码 -> 提前预设选好计算器，统一在构造函数
 
 ## 安全重构
 * 添加自动化测试案例
