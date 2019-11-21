@@ -1,7 +1,8 @@
 package demo1;
 
-public class ChildrenCalculator {
+public class ChildrenCalculator extends Calculator {
 
+    @Override
     public double calAmt(int daysRented) {
         double result = 1.5;
         if (daysRented > 3)
@@ -9,7 +10,4 @@ public class ChildrenCalculator {
         return result;
     }
 
-    public int calPoints(int daysRented) {
-        return 1;
-    }
 }

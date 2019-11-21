@@ -1,7 +1,8 @@
 package demo1;
 
-public class RegularCalculator {
+public class RegularCalculator extends Calculator {
 
+    @Override
     public double calAmt(int daysRented) {
         double result = 2;
         if (daysRented > 2)
@@ -9,7 +10,4 @@ public class RegularCalculator {
         return result;
     }
 
-    public int calPoints(int daysRented) {
-        return 1;
-    }
 }
