@@ -68,6 +68,8 @@
 
 思考： 重构与性能优化的关系？
 
-### Part 4 （Switch/Case， 多态）
-
+### Part 4 （Switch/Case， 多态重载）
+* 抽取Movie里面计算细节到三个独立的Calculator类
+* Review三个计算类发现重复代码，抽取SuperClass
+* 回顾Movie里面继续发现Switch/Case重复代码，挪到在构造函数里面一次装配好计算器，之后可以直接使用，而不是每次使用的时候重复选择
 
