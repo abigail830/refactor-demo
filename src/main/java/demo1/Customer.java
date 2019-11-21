@@ -54,21 +54,14 @@ public class Customer {
     }
 
     private int calculateTotalFrequentRenterPoints() {
-        int frequentRenterPoints = 0;
-        for (Rental rental : rentalList) {
-            // add frequent renter points （累计常客积点。
-            frequentRenterPoints += rental.calculateFrequentRenterPoints();
-        }
-        return frequentRenterPoints;
+        return rentalList.stream()
+                .map(Rental::calculateFrequentRenterPoints)
+                .reduce(0, Integer::sum);
     }
 
     private double calculateTotalAmt() {
-        double totalAmount = 0;
-
-        for (Rental rental : rentalList) {
-            totalAmount += rental.calculateAmount();
-        }
-
-        return totalAmount;
+        return rentalList.stream()
+                .map(Rental::calculateAmount)
+                .reduce(0d, Double::sum);
     }
 }
