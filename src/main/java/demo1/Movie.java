@@ -39,11 +39,22 @@ public class Movie {
     }
 
     public int calPoints(int daysRented) {
-        if ((priceCode == NEW_RELEASE) && daysRented > 1) {
-            return 2;
-        } else {
-            return 1;
+        int result = 0;
+        switch (priceCode) {
+            // 普通片
+            case REGULAR:
+                result = new RegularCalculator().calPoints(daysRented);
+                break;
+            // 新片
+            case NEW_RELEASE:
+                result = new NewReleaseCalculator().calPoints(daysRented);
+                break;
+            // 儿童
+            case CHILDRENS:
+                result = new ChildrenCalculator().calPoints(daysRented);
+                break;
         }
+        return result;
     }
 
     public double calAmount(int daysRented) {
@@ -51,21 +62,19 @@ public class Movie {
         switch (priceCode) {
             // 普通片
             case REGULAR:
-                result += 2;
-                if (daysRented > 2)
-                    result += (daysRented - 2) * 1.5;
+                result = new RegularCalculator().calAmt(daysRented);
                 break;
             // 新片
             case NEW_RELEASE:
-                result += daysRented * 3;
+                result = new NewReleaseCalculator().calAmt(daysRented);
                 break;
             // 儿童
             case CHILDRENS:
-                result += 1.5;
-                if (daysRented > 3)
-                    result += (daysRented - 3) * 1.5;
+                result = new ChildrenCalculator().calAmt(daysRented);
                 break;
         }
         return result;
     }
+
+
 }
