@@ -35,31 +35,40 @@ public class Customer {
 
     public String printStatement() {
 
-        double totalAmount = 0; // 总消费金。
-        int frequentRenterPoints = 0; // 常客积点
-
         String result = "Rental Record for " + name + "\n";
 
+        // 打印明细
         for (Rental rental : rentalList) {
-
-            // add frequent renter points （累计常客积点。
-            frequentRenterPoints += rental.calculateFrequentRenterPoints();
-
-            // 取得影片出租价格
-            double thisAmount = rental.calculateAmount();
-
-            // show figures for this rental（显示此笔租借记录）
             result += "\t" + rental.getMovie().getTitle() + "\t"
-                    + String.valueOf(thisAmount) + "\n";
-
-            totalAmount += thisAmount;
+                    + String.valueOf(rental.calculateAmount()) + "\n";
         }
 
-        // add footer lines（结尾打印）
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints)
+        // 打印总金额
+        result += "Amount owed is " + String.valueOf(calculateTotalAmt()) + "\n";
+
+        //打印总积分
+        result += "You earned " + String.valueOf(calculateTotalFrequentRenterPoints())
                 + " frequent renter points";
 
         return result;
+    }
+
+    private int calculateTotalFrequentRenterPoints() {
+        int frequentRenterPoints = 0;
+        for (Rental rental : rentalList) {
+            // add frequent renter points （累计常客积点。
+            frequentRenterPoints += rental.calculateFrequentRenterPoints();
+        }
+        return frequentRenterPoints;
+    }
+
+    private double calculateTotalAmt() {
+        double totalAmount = 0;
+
+        for (Rental rental : rentalList) {
+            totalAmount += rental.calculateAmount();
+        }
+
+        return totalAmount;
     }
 }
