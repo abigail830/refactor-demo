@@ -9,9 +9,29 @@ public class Movie {
     private String title;
     private int priceCode;
 
+    private Calculator calculator;
+
     public Movie(String title, int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
+        setCalculator(priceCode);
+    }
+
+    private void setCalculator(int priceCode) {
+        switch (priceCode) {
+            // 普通片
+            case REGULAR:
+                calculator = new RegularCalculator();
+                break;
+            // 新片
+            case NEW_RELEASE:
+                calculator = new NewReleaseCalculator();
+                break;
+            // 儿童
+            case CHILDRENS:
+                calculator = new ChildrenCalculator();
+                break;
+        }
     }
 
     public String getTitle() {
@@ -39,41 +59,11 @@ public class Movie {
     }
 
     public int calPoints(int daysRented) {
-        int result = 0;
-        switch (priceCode) {
-            // 普通片
-            case REGULAR:
-                result = new RegularCalculator().calPoints(daysRented);
-                break;
-            // 新片
-            case NEW_RELEASE:
-                result = new NewReleaseCalculator().calPoints(daysRented);
-                break;
-            // 儿童
-            case CHILDRENS:
-                result = new ChildrenCalculator().calPoints(daysRented);
-                break;
-        }
-        return result;
+        return calculator.calPoints(daysRented);
     }
 
     public double calAmount(int daysRented) {
-        double result = 0;
-        switch (priceCode) {
-            // 普通片
-            case REGULAR:
-                result = new RegularCalculator().calAmt(daysRented);
-                break;
-            // 新片
-            case NEW_RELEASE:
-                result = new NewReleaseCalculator().calAmt(daysRented);
-                break;
-            // 儿童
-            case CHILDRENS:
-                result = new ChildrenCalculator().calAmt(daysRented);
-                break;
-        }
-        return result;
+        return calculator.calAmt(daysRented);
     }
 
 }
